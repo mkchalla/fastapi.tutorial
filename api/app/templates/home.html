@@ -1,0 +1,47 @@
+{% extends "layouts/layout.html" %}
+
+{% block content %}
+
+<form action="">
+
+    <div class="ui input">
+        <input type="text" placeholder="P/E Ratio">
+    </div>
+    
+    <div class="ui input">
+        <input type="text" placeholder="Divident Yield">
+    </div>
+    
+    <div class="ui checkbox">
+        <input type="checkbox" name="test">
+        <label for="test">Above 200 Day MA</label>
+    </div>
+    
+    <button class="ui primary button">Filter</button>
+</form>
+
+<table class="ui celled table">
+    <thead>
+      <tr><th>Symbol</th>
+      <th>P/E</th>
+      <th>Divident Yield</th>
+    </tr></thead>
+    <tbody>
+      <tr>
+        <td data-label="Name">James</td>
+        <td data-label="Age">24</td>
+        <td data-label="Job">Engineer</td>
+      </tr>
+      <tr>
+        <td data-label="Name">Jill</td>
+        <td data-label="Age">26</td>
+        <td data-label="Job">Engineer</td>
+      </tr>
+      <tr>
+        <td data-label="Name">Elyse</td>
+        <td data-label="Age">24</td>
+        <td data-label="Job">Designer</td>
+      </tr>
+    </tbody>
+  </table>
+{% endblock %}

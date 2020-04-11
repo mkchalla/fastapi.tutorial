@@ -1,0 +1,39 @@
+version: "3"
+
+services: 
+    fastapi:
+        build: 
+            context: ./api
+            dockerfile: Dockerfile.dev
+        volumes: 
+            - "./api/app:/app" 
+        ports:
+            - "8081:80"
+        networks: 
+            - fastapi
+
+    ui:
+        build: 
+            context: ./ui
+            dockerfile: Dockerfile.dev
+        volumes: 
+            - "./ui/app:/app"
+            - /app/node_modules 
+        ports:
+            - "8080:8080"
+        networks: 
+            - fastapi
+    npm:
+        build: 
+            context: ./ui
+            dockerfile: Dockerfile.dev
+        volumes: 
+            - "./ui/app:/app"
+            - /app/node_modules
+        working_dir: /app
+        entrypoint: ["npm"]
+        networks: 
+            - fastapi
+
+networks: 
+    fastapi:
